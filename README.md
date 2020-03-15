@@ -5,4 +5,4 @@ Testing data available at: https://drive.google.com/drive/folders/1cqu8up0rY1XYA
 
 To run the pipeline you need to:
 1. Download snakemake: https://snakemake.readthedocs.io/en/stable/
-2. Use command: snakemake --use-conda  --snakefile .../scripts/snakemake_test.smk -r --nolock
+2. Use command: snakemake --use-conda  --snakefile /scripts/snakemake_test.smk -r --nolock
