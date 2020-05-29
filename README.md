@@ -20,5 +20,5 @@ To run the pipeline:
   1. Install the Miniconda Python3 distribution
   2. Install snakemake:
 	    conda install -c conda-forge -c bioconda snakemake
-  3. Run command:
+  3. Run command: snakemake --use-conda --snakefile snakemake_test.smk -j (number of available cores) -r 
 
