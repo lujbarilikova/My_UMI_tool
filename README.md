@@ -13,7 +13,7 @@ To run My_UMI_tool from command line:
   4. Activate the new environment:
 	    conda activate myumitool
   5. Run command:
-	    Rscript /mnt/ssd/ssd_3/temp/lujza/umi_project/scripts/wraps/fastq2bam_RNA/clust_umi/clust_umi.R {input.fastq} {output.fastq} {output.grp}
+	    Rscript clust_umi.R {input.fastq} {output.fastq} {output.grp}  (direct from directory or write down full path of a file clust_umi.R)
     
 
 To run the pipeline:
