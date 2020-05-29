@@ -20,6 +20,6 @@ To run the pipeline:
   1. Install the Miniconda Python3 distribution
   2. Install snakemake:
 	    conda install -c conda-forge -c bioconda snakemake
-  4. store files to analyze to your WDIR in normal_fastq directory
+  4. store files to analyze to your WDIR in directory named normal_fastq 
   3. Run command: snakemake --use-conda --snakefile snakemake_test.smk -j (number of available cores) -r 
 
