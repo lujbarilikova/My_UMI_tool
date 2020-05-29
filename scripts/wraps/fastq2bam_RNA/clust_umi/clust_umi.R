@@ -31,7 +31,7 @@ data[,N := .N,by = umi]
 data[N > 1,cat(paste0(">",head,"\n",seq,"\n"),file = paste0(output_dir,paste0("/",sample_name,"/umi_fa/"),umi[1],".fa"),sep = ""),by = umi]
 
 
-# VSEARCH clustering + alignment cutoff
+# VSEARCH clustering with sequence similarity --id 0.8 by default 
 dir.create(paste0(output_dir,paste0("/",sample_name,"/umi_clust")))  
 dir.create(paste0(output_dir,paste0("/",sample_name,"/consensus")))
 dir.create(paste0(output_dir,paste0("/",sample_name,"/alignment")))
