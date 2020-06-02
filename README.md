@@ -20,6 +20,7 @@ To run the pipeline:
   1. Install the Miniconda Python3 distribution
   2. Install snakemake:
 	    conda install -c conda-forge -c bioconda snakemake
-  4. Store files to analyze to your WDIR in directory named normal_fastq 
-  3. Run command: snakemake --use-conda --snakefile snakemake_test.smk -j (number of available cores) -r 
+  4. Make WDIR folder named umi_project and download ,,scripts" folder there
+  5. Store files to analyze to your WDIR in folder named normal_fastq 
+  6. Run command: snakemake --use-conda --snakefile snakemake_test.smk -j (number of available cores) -r 
 
