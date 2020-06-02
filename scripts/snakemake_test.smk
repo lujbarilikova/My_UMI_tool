@@ -5,16 +5,16 @@ sample_list = ["L102-Q_SE","L102FFPE-Q_SE"]       # make list of samples
 
 
 rule all_res:
-    input: bam_umitools = expand(WDIR + "/final_dedup2/mapped/{sample}_umitools_dedup.bam",sample = sample_list),
-           bam_myumi = expand(WDIR + "/final_dedup2/mapped/{sample}.myumi_dedup.bam",sample = sample_list)
+    input: bam_umitools = expand(WDIR + "/final_dedup/mapped/{sample}_umitools_dedup.bam",sample = sample_list),
+           bam_myumi = expand(WDIR + "/final_dedup/mapped/{sample}.myumi_dedup.bam",sample = sample_list)
 
 rule mark_duplicates_umi_tool:
-    input:  bam = WDIR + "/final_dedup2/mapped/{sample}.normal.bam"
-    output: bam = WDIR + "/final_dedup2/mapped/{sample}_umitools_dedup.bam",
-            bai = WDIR + "/final_dedup2/mapped/{sample}_umitools_dedup.bam.bai",
-            mtx = WDIR + "/final_dedup2/postQC/{sample}/MarkDuplicates/{sample}.markDups_metrics.txt",
-            grp = WDIR + "/final_dedup2/mapped/{sample}_umitools_dedup_grouped.bam",
-            grptsv = WDIR + "/final_dedup2/mapped/{sample}_umitools_dedup_grouped.tsv"
+    input:  bam = WDIR + "/final_dedup/mapped/{sample}.normal.bam"
+    output: bam = WDIR + "/final_dedup/mapped/{sample}_umitools_dedup.bam",
+            bai = WDIR + "/final_dedup/mapped/{sample}_umitools_dedup.bam.bai",
+            mtx = WDIR + "/final_dedup/postQC/{sample}/MarkDuplicates/{sample}.markDups_metrics.txt",
+            grp = WDIR + "/final_dedup/mapped/{sample}_umitools_dedup_grouped.bam",
+            grptsv = WDIR + "/final_dedup/mapped/{sample}_umitools_dedup_grouped.tsv"
     log:    run = WDIR + "/sample_logs/{sample}/mark_duplicates.log"
     threads:  8
     resources:  mem = 15
@@ -35,12 +35,12 @@ rule alignment_SE:
             gtf = REF_DIR + "/annot/GRCh38-p10.gtf",
             index = REF_DIR + "/index/STAR/SAindex",
             gendir = REF_DIR + "/index/STAR",
-    output: bam = WDIR + "/final_dedup2/mapped/{sample}.{type}.bam",
-            bai = WDIR + "/final_dedup2/mapped/{sample}.{type}.bam.bai"
+    output: bam = WDIR + "/final_dedup/mapped/{sample}.{type}.bam",
+            bai = WDIR + "/final_dedup/mapped/{sample}.{type}.bam.bai"
     log:    run = WDIR + "/sample_logs/{sample}/alignment_{type}_SE.log"
     threads: 40
     resources:  mem = 34
-    params: prefix = "final_dedup2/mapped/{sample}/{sample}",
+    params: prefix = "final_dedup/mapped/{sample}/{sample}",
             strandness = "fwd", #"true" or "false" - STAR parameters: strandedness, affects bedGraph (wiggle) files and XS tag in BAM
             perc_mismatch = 0.1, # percentage of mismatches between reference and MAPPED part of read – 0.05, maybe much strict, should be set to 0.1, default is 0.3 which is too loose.
             num_mismatch = 999, # Maximum number of mismatches; set this to high number (999) to disable and to use only perc_mismatch
@@ -79,5 +79,5 @@ rule myumi:
             grp = WDIR + "/myumi_dedup_fastq/{sample}_grouped.tsv",
     conda:  WDIR + "/scripts/wraps/fastq2bam_RNA/clust_umi/env.yaml"
     shell: """
-        Rscript /mnt/ssd/ssd_3/temp/lujza/umi_project/scripts/wraps/fastq2bam_RNA/clust_umi/clust_umi.R {input.fastq} {output.fastq} {output.grp}
+        Rscript /umi_project/scripts/wraps/fastq2bam_RNA/clust_umi/clust_umi.R {input.fastq} {output.fastq} {output.grp}
   """ 
