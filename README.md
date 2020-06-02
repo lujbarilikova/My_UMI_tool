@@ -19,12 +19,12 @@ To run the pipeline:
 2. Install snakemake: conda install -c conda-forge -c bioconda snakemake
 3. Download umi_project folder 
 4. Download references:
-	annot file	to	/umi_project/references/homsap/GRCh38-p10/annot 		
-	SAindex file 	to 	/umi_project/references/homsap/GRCh38-p10/index/STAR/SAindex 	
-	seq file 	to 	/umi_project/references/homsap/GRCh38-p10/seq 			
+annot file	to	/umi_project/references/homsap/GRCh38-p10/annot 		
+SAindex file 	to 	/umi_project/references/homsap/GRCh38-p10/index/STAR/SAindex 	
+seq file 	to 	/umi_project/references/homsap/GRCh38-p10/seq 			
 
-	annot file (unrar):			https://drive.google.com/drive/folders/1cHsKabMHTuJvxEPFXM9W4O_9qltEqhke
-	SAindex file (unrar):			https://drive.google.com/drive/folders/1BAhhQdTLwJfklCvH5CwZul1moC5BvtC9
-	seq file (unzip from fasta.gz to fa): 	https://drive.google.com/drive/folders/1fs2YJ0ecqDWvfNynRtq9kutKG2uWB4Y4
+annot file (unrar):			https://drive.google.com/drive/folders/1cHsKabMHTuJvxEPFXM9W4O_9qltEqhke
+SAindex file (unrar):			https://drive.google.com/drive/folders/1BAhhQdTLwJfklCvH5CwZul1moC5BvtC9
+seq file (unzip from fasta.gz to fa): 	https://drive.google.com/drive/folders/1fs2YJ0ecqDWvfNynRtq9kutKG2uWB4Y4
 
 5. Run command: snakemake --use-conda --snakefile /umi_project/scripts/snakemake_test.smk -j (number of available cores) -r
