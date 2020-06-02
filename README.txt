@@ -23,8 +23,8 @@ To run the pipeline:
   SAindex file 	to 	/umi_project/references/homsap/GRCh38-p10/index/STAR/SAindex 	
   seq file 	to 	/umi_project/references/homsap/GRCh38-p10/seq 			
 
-  annot file (unrar):			https://drive.google.com/drive/folders/1cHsKabMHTuJvxEPFXM9W4O_9qltEqhke
-  SAindex file (unrar):		https://drive.google.com/drive/folders/1BAhhQdTLwJfklCvH5CwZul1moC5BvtC9
+  annot file (unrar):       https://drive.google.com/drive/folders/1cHsKabMHTuJvxEPFXM9W4O_9qltEqhke
+  SAindex file (unrar):       https://drive.google.com/drive/folders/1BAhhQdTLwJfklCvH5CwZul1moC5BvtC9
   seq file (unrar):       https://drive.google.com/drive/folders/1fs2YJ0ecqDWvfNynRtq9kutKG2uWB4Y4
 
 5. Run command: snakemake --use-conda --snakefile /umi_project/scripts/snakemake_test.smk -j (number of available cores) -r
